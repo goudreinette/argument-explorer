@@ -2,7 +2,12 @@ link rel='stylesheet' href='/main.css'
 
 .container
   .top
-    nav = "#{branch}/#{theory}"
+    nav 
+      a href="/#{branch.downcase}" 
+        = branch
+      | /
+      a href="/#{branch.downcase}/#{theory.downcase}" 
+        = theory
     h1 = name
   .bottom
     main
