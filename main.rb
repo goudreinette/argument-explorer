@@ -3,6 +3,7 @@ require 'slim'
 require 'kwstruct'
 require 'require_all'
 require 'pathname'
+require 'fileutils'
 require 'active_support/hash_with_indifferent_access'
 require_all 'source'
 
@@ -19,12 +20,25 @@ def arguments
   end
 end
 
-def build
-  puts "Building..."
+
+def build_arguments
   arguments.each do |arg|
-    File.write("./dist/#{arg.path}.html",
+    dir = "./dist/#{arg.branch.downcase}/#{arg.theory.downcase}"
+    path = "#{dir}/#{arg.path}.html"
+
+    unless File.directory?(dir)
+      FileUtils.mkdir_p(dir)
+    end
+
+    File.write(path,
       Slim::Template.new('views/argument.slim', {}).render(arg))
   end
+end
+
+
+def build
+  puts "Building..."
+  build_arguments
 end
 
 
