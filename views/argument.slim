@@ -2,7 +2,31 @@ link rel='stylesheet' href='/main.css'
 
 .container
   .top
+    nav = "#{branch}/#{theory}"
     h1 = name
-  main
-    .structure
-  aside.meta
+  .bottom
+    main
+      .structure 
+        - structure.each do |k, v|
+          .item
+            .key = k
+            .value = v
+    
+      .counterarguments 
+        h2 counter arguments
+        - counterarguments.each do |arg|
+            .counterargument
+              .name = arg
+              .philosopher
+            
+    aside.meta
+      .item 
+        .key philosopher
+        .value = philosopher
+      .item 
+        .key publication
+        .value = publication
+      .item 
+        .key year
+        .value = year
+      

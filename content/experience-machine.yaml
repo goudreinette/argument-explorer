@@ -4,7 +4,7 @@ theory: 'Hedonism'
 philosopher: 'Robert Nozick'
 publication: 'Anarchy, State and Utopia'
 year: 1974
-counterarguments: []
+counterarguments: ['The Desire for Authenticity']
 description: ''
 structure:
   P1: 'If experiencing as much pleasure as we can is all that matters to us,
