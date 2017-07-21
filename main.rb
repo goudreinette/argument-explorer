@@ -4,11 +4,11 @@ require 'attr_extras'
 require 'require_all'
 require 'pathname'
 require 'fileutils'
-require 'active_support/hash_with_indifferent_access'
+require 'active_support/all'
 require_all 'source'
 
 
-# Shared
+# Helpers
 def load_yaml_folder(folder, struct)
   Dir["./content/#{folder}/*.yaml"].map do |path|
     struct.new(path: Pathname.new(path).basename.sub_ext(''),
@@ -16,7 +16,13 @@ def load_yaml_folder(folder, struct)
   end
 end
 
+def slim(template, it)
+  File.write("./dist/#{template.pluralize}/#{it.path}.html",
+    Slim::Template.new("views/#{template}.slim", pretty: true).render(it))
+end
 
+
+# Model
 class Argument
   attr_accessor_initialize [:path, :name,
                             :branch, :theory,
@@ -27,6 +33,12 @@ class Argument
 
   def self.all
     load_yaml_folder "arguments", Argument
+  end
+
+  def self.build
+    Argument.all.each do |arg|
+      slim "argument", arg
+    end
   end
 end
 
@@ -39,6 +51,12 @@ class Theory
     load_yaml_folder "theories", self
   end
 
+  def self.build
+    Theory.all.each do |theory|
+      slim "theory", theory
+    end
+  end
+
   def arguments
     Argument.all.select { |a| a.theory == name }
   end
@@ -46,23 +64,6 @@ end
 
 
 
-# Build
-def build_theories
-  Theory.all.each do |theory|
-    path = "./dist/theories/#{theory}"
-    File.write(path,
-      Slim::Template.new('views/theory.slim', {}).render(theory))
-  end
-end
-
-
-def build_arguments
-  Argument.all.each do |arg|
-    path = "./dist/arguments/#{arg.path}.html"
-    File.write(path,
-      Slim::Template.new('views/argument.slim', {}).render(arg))
-  end
-end
 
 
 def build
@@ -75,8 +76,10 @@ def build
     end
   end
 
-  build_arguments
+  [Argument, Theory].each do |x|
+    x.build
+  end
 end
 
 
-# build
+build
