@@ -96,6 +96,12 @@ h2 {
     padding: 20px 30px;
     transition: all 0.3s;
     border: 1px solid #eee;
+    height: 75px;
+    display: flex;
+    width: 500px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 .meta .item a.value {
@@ -130,3 +136,11 @@ a {
     height: 500px;
     border-right: 1px solid lightgrey;
 }
+
+.theory .arguments {
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.theory .arguments {}

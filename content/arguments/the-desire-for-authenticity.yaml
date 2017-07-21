@@ -1,10 +1,10 @@
-name: 'Experience Machine'
+name: 'The Desire for Authenticity'
 branch: 'ethics'
 theory: 'ethical-hedonism'
 philosopher: 'Robert Nozick'
 publication: 'Anarchy, State and Utopia'
 year: 1974
-counterarguments: ['the-desire-for-authenticity']
+counterarguments: []
 description: ''
 structure:
   P1: 'If experiencing as much pleasure as we can is all that matters to us,

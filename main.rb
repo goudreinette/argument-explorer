@@ -44,6 +44,12 @@ class Argument
       slim "argument", arg
     end
   end
+
+  def counterarguments
+    @counterarguments.map do |ca_path|
+      Argument.all.find { |arg| arg.path == ca_path }
+    end
+  end
 end
 
 

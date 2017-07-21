@@ -7,4 +7,6 @@ include header
     
   .arguments  
     - arguments.each do |arg|
-      include argument-card
+      a.counterargument.argument href="/arguments/#{arg.path}.html" 
+        .name = arg.name
+        .philosopher = arg.philosopher
