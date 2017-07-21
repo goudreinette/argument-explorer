@@ -1,5 +1,6 @@
 require 'yaml'
 require 'slim'
+require 'slim/include'
 require 'attr_extras'
 require 'require_all'
 require 'pathname'
@@ -11,7 +12,7 @@ require_all 'source'
 # Helpers
 def load_yaml_folder(folder, struct)
   Dir["./content/#{folder}/*.yaml"].map do |path|
-    struct.new(path: Pathname.new(path).basename.sub_ext(''),
+    struct.new(path: Pathname.new(path).basename.sub_ext('').to_s,
                  **YAML.load(File.read(path)).symbolize_keys)
   end
 end
@@ -22,14 +23,17 @@ def slim(template, it)
 end
 
 
+
 # Model
 class Argument
-  attr_accessor_initialize [:path, :name,
-                            :branch, :theory,
-                            :philosopher,
-                            :publication, :year,
-                            :counterarguments,
-                            :description, :structure]
+  attr_accessor_initialize [
+    :path, :name,
+    :branch, :theory,
+    :philosopher,
+    :publication, :year,
+    :counterarguments,
+    :description, :structure
+  ]
 
   def self.all
     load_yaml_folder "arguments", Argument
@@ -45,7 +49,9 @@ end
 
 
 class Theory
-  attr_accessor_initialize [:path, :name, :description]
+  attr_accessor_initialize [
+    :path, :name, :description
+  ]
 
   def self.all
     load_yaml_folder "theories", self
@@ -58,7 +64,7 @@ class Theory
   end
 
   def arguments
-    Argument.all.select { |a| a.theory == name }
+    Argument.all.select { |a| a.theory == path }
   end
 end
 

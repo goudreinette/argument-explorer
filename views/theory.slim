@@ -1,0 +1,10 @@
+include header
+
+.container.theory
+  .info
+    h1 = name
+    .description = description
+    
+  .arguments  
+    - arguments.each do |arg|
+      include argument-card

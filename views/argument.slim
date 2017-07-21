@@ -1,12 +1,12 @@
-link rel='stylesheet' href='/main.css'
+include header
 
 .container
   .top
     nav 
-      a href="/#{branch.downcase}" 
+      a href="/#{branch.downcase}.html" 
         = branch
       | /
-      a href="/#{branch.downcase}/#{theory.downcase}" 
+      a href="/theories/#{theory.downcase}.html" 
         = theory
     h1 = name
   .bottom
@@ -20,9 +20,7 @@ link rel='stylesheet' href='/main.css'
       .counterarguments 
         h2 counter arguments
         - counterarguments.each do |arg|
-            .counterargument
-              .name = arg
-              .philosopher
+            include argument-card
             
     aside.meta
       .item 
