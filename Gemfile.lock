@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    kwstruct (0.2.0)
+    attr_extras (5.2.0)
     require_all (1.4.0)
     slim (3.0.8)
       temple (>= 0.7.6, < 0.9)
@@ -13,7 +13,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  kwstruct
+  attr_extras
   require_all
   slim
 
