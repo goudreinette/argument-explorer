@@ -1,7 +1,7 @@
 @import "//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic";
 @import "//cdn.rawgit.com/necolas/normalize.css/master/normalize.css";
 @import "//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css";
-
+@import "//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css";
 
 body {
     font-family: 'NeuzeitGroTOT';
