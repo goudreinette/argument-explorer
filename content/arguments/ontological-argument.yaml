@@ -1,0 +1,16 @@
+name: 'Ontological argument'
+branch: 'metaphysics'
+theory: 'theism'
+philosopher: 'Anselm of Canterbury'
+publication: "Proslogion"
+year: 1078
+counterarguments: []
+description: ''
+structure:
+  P1: 'By definition, God is a being than which none greater can be imagined.'
+  P2: 'A being that necessarily exists in reality is greater than a being that does not necessarily exist.'
+  C1: 'Thus, by definition, if God exists as an idea in the mind but does not necessarily exist in reality, then we can imagine something that is greater than God.'
+  P3: 'But we cannot imagine something that is greater than God.'
+  C2: 'Thus, if God exists in the mind as an idea, then God necessarily exists in reality.'
+  P4: 'God exists in the mind as an idea.'
+  C3: 'Therefore, God necessarily exists in reality.'

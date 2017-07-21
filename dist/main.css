@@ -24,7 +24,7 @@ body {
 aside.meta {
     border-left: 1px solid #ddd;
     height: 500px;
-    /* width: 200px; */
+    width: 250px;
     padding: 20 30px;
 }
 
@@ -87,7 +87,10 @@ body {}
 h2 {
     /* font-weight: bold; */
     font-size: 2rem;
+    /* text-transform: uppercase; */
     /* margin-top: 50px; */
+    /* opacity: 0.5; */
+    /* color: #bbb; */
     font-family: 'Concourse C3';
 }
 
@@ -98,7 +101,7 @@ h2 {
     border: 1px solid #eee;
     height: 75px;
     display: flex;
-    width: 500px;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
@@ -132,15 +135,20 @@ a {
 
 .theory .info {
     max-width: 400px;
-    padding: 0 50px 30 0;
+    padding: 0 30px 30 0;
     height: 500px;
-    border-right: 1px solid lightgrey;
+    /* border-right: 1px solid lightgrey; */
 }
 
 .theory .arguments {
-    padding: 20px 30px;
+    padding: 20px 40px;
     display: flex;
+    width: calc(100% - 400px);
     flex-direction: column;
 }
 
 .theory .arguments {}
+
+.theory .description {
+    max-width: 300px;
+}
